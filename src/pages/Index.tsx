@@ -1,13 +1,36 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import BrandHeader from "@/components/BrandHeader";
+import Hero from "@/components/sections/Hero";
+import AboutSection from "@/components/sections/AboutSection";
+import ServicesSection from "@/components/sections/ServicesSection";
+import TestimonialsSection from "@/components/sections/TestimonialsSection";
+import BlogSection from "@/components/sections/BlogSection";
+import ContactSection from "@/components/sections/ContactSection";
+import Footer from "@/components/Footer";
 
 const Index = () => {
+  const orgLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Brainvibe',
+    url: 'https://brainvibe.example.com/',
+    sameAs: ['https://twitter.com/', 'https://www.linkedin.com/'],
+    description: 'Advanced QEEG brain analysis made friendly and clear.'
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }} />
+      <BrandHeader />
+      <main>
+        <Hero />
+        <AboutSection />
+        <ServicesSection />
+        <TestimonialsSection />
+        <BlogSection />
+        <ContactSection />
+      </main>
+      <Footer />
+    </>
   );
 };
 
